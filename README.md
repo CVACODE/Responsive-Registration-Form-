@@ -14,3 +14,7 @@ As you can see on the given image of the signup of the registration form. Normal
 * Date of birth
 * 2 year experience Selection
 * Submit Button
+
+## Form information:
+### All information on this form will be sent to this gmail: spinu.vadim712@gmail.com
+### This forum has no limit to requests, which means that you can send countless emails to gmail.
