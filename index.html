@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Responsive Registration Form</div>
+    <div class="content">
+      <form action="#" class = "contact-form">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" class="name" id="firstName" name="First Name"  placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" class="last_name" id="Last Name" name="Last Name" placeholder="Enter your last name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" class = "email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" class="phone_number"  id="phone" name="text" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Date of birth</span>
+            <input type="text" class="date_of_birth" id="Date" name="Date" placeholder="Enter your date of birth" required>
+          </div>
+          <div class="input-box">
+            <span class="details">SDL</span>
+            <input type="text" class="sdl" name="SDL"  id="sdl" placeholder="SDL permissions" required>  
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio"  class="gender" name="gender" id="dot-1">
+          <input type="radio"  class="gender" name="gender" id="dot-2">
+          <input type="radio"  class="gender" name="gender" id="dot-3">
+          <span class="gender-title">2 year experience</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span   type="text" name="Yes" id="Yes" class="gender">Yes</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span   type="text" name="No" id="No" class="gender">No</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span   type="text"  name="not" id="Not" class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="loader">
+    <span class="loader__element"></span>
+    <span class="loader__element"></span>
+    <span class="loader__element"></span>
+  </div>
+
+  <script>
+    const form = document.querySelector(".contact-form");
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    let name = document.querySelector(".name").value;
+    let last_name = document.querySelector(".last_name").value;
+    let date_of_birth = document.querySelector(".date_of_birth").value;
+    let email = document.querySelector(".email").value;
+    let phone_number = document.querySelector(".phone_number").value;
+    let sdl = document.querySelector(".sdl").value;
+    let gender = document.queryCommandValue(".gender").value;
+   
+    document.querySelector(".contact-form").reset();
+  
+    sendEmail(name, last_name,  date_of_birth, email, phone_number, sdl, gender);
+  })
+  function sendEmail(name, last_name,  date_of_birth, email, phone_number, sdl, gender){
+    Email.send({
+        
+      Host: "smtp.gmail.com", 
+      Username: "form.com2022@gmail.com",
+      Password: "Traiangeox",
+      To: "spinu.vadim712@gmail.com",
+      From: "form.com2022@gmail.com",
+      Subject: `${name} Just messaged you from the website form`,
+      Body: `Name: ${name} <br> =======================<br> Last Name: ${last_name} <br> ------------------------------------<br> Date of birth: ${date_of_birth} <br> -------------------------------------<br> Email: ${email} <br> ------------------------------------------------------------<br> Phone Number: ${phone_number} <br> ------------------------------------------------------------<br>  SDL: ${sdl} <br> 2 years experience: Yes <br> ------------------------------------------------<br>`,
+    }).then((success) => {
+     
+      alert("Message sent successfully. Please check the spam folder in your mail.");
+    }).catch((error) => {
+        
+      alert("error sending message");
+    })
+  }
+  </script>
+
+</body>
+</html>
